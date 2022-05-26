@@ -3,24 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: sessionStorage.getItem("activeUser"),
       message: null,
-      demo: [
-        {
-          title: "FIRST",
-          background: "white",
-          initial: "white",
-        },
-        {
-          title: "SECOND",
-          background: "white",
-          initial: "white",
-        },
-      ],
     },
     actions: {
       // Use getActions to call a function within a fuction
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
-      },
 
       syncTokenFromSession: () => {
         const token = sessionStorage.getItem("token");
@@ -50,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ user: activeUser });
           sessionStorage.setItem("activeUser", activeUser);
         } catch (error) {
-          throw Error("error has been found get user");
+          throw Error("error on getuser");
         }
       },
 
@@ -77,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             return true;
           }
         } catch (error) {
-          throw Error("there has been an error");
+          throw Error("error on login");
         }
       },
 
@@ -97,10 +82,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             getActions().getActiveUser(email);
             return true;
           } else {
-            throw "another error occurred";
+            throw "createuser error";
           }
         } catch (error) {
-          throw Error("Encountered Error");
+          throw Error("Encountered Error on createuser");
         }
       },
 
@@ -119,10 +104,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         //we have to loop the entire demo array to look for the respective index
         //and change its color
-        const demo = store.demo.map((elm, i) => {
-          if (i === index) elm.background = color;
-          return elm;
-        });
 
         //reset the global store
         setStore({ demo: demo });

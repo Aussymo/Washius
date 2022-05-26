@@ -23,10 +23,16 @@ export const Login = () => {
             src="https://media.discordapp.net/attachments/617586904866619402/977376727657508904/Add_a_heading_2.png"
           />
           <br />
-          <a href="#" className="active">
+          <a
+            href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/"
+            className="active"
+          >
             Login
           </a>
-          <a href="#" className="unactive">
+          <a
+            href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/signup"
+            className="unactive"
+          >
             Signup
           </a>
         </div>
@@ -34,29 +40,41 @@ export const Login = () => {
         <br />
         <br />
         <div className="data">
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+
+          {/* <a href="#" className="forgotpsw">
           <input type="text" className="inputs" placeholder="Email Address" />
           <input type="text" className="inputs" placeholder="Password" />
           <br />
 
           <a href="#" className="forgotpsw">
             Forgot Password?
-          </a>
+          </a> */}
         </div>
         <br />
         <br />
         <div className="submitdiv">
-          <input type="submit" value="Login" className="submitbtn" />
+          <input
+            onClick={handleClick}
+            className="submitbtn"
+            placeholder="Login"
+          />
         </div>
         <br />
         <br />
-        <div className="footer">
-          <p>
-            Not a member?{" "}
-            <a href="#" className="signupbtn">
-              Signup now
-            </a>
-          </p>
-        </div>
       </form>
     </div>
   );

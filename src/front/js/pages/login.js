@@ -19,6 +19,10 @@ export const Login = () => {
       <form action="" className="form">
         <div className="top">
           <h1>Login Form</h1>
+          <img
+            className="logo"
+            src="https://media.discordapp.net/attachments/617586904866619402/977376727657508904/Add_a_heading_2.png"
+          />
           <br />
           <a href="#" className="active">
             Login
@@ -26,7 +30,8 @@ export const Login = () => {
           <a
             href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/signup"
             className="unactive"
-          >
+          ></a>
+          <a href="#" className="unactive">
             Signup
           </a>
         </div>
@@ -49,6 +54,11 @@ export const Login = () => {
           <br />
 
           {/* <a href="#" className="forgotpsw">
+          <input type="text" className="inputs" placeholder="Email Address" />
+          <input type="text" className="inputs" placeholder="Password" />
+          <br />
+
+          <a href="#" className="forgotpsw">
             Forgot Password?
           </a> */}
         </div>
@@ -60,6 +70,7 @@ export const Login = () => {
             className="submitbtn"
             placeholder="Login"
           />
+          <input type="submit" value="Login" className="submitbtn" />
         </div>
         <br />
         <br />

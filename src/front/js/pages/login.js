@@ -16,40 +16,54 @@ export const Login = () => {
   };
   return (
     <div>
-      <form action="" class="form">
-        <div class="top">
+      <form action="" className="form">
+        <div className="top">
           <h1>Login Form</h1>
           <br />
-          <a href="#" class="active">
+          <a href="#" className="active">
             Login
           </a>
-          <a href="#" class="unactive">
+          <a href="#" className="unactive">
             Signup
           </a>
         </div>
         <br />
         <br />
         <br />
-        <div class="data">
-          <input type="text" class="inputs" placeholder="Email Address" />
-          <input type="text" class="inputs" placeholder="Password" />
+        <div className="data">
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <br />
 
-          <a href="#" class="forgotpsw">
+          {/* <a href="#" className="forgotpsw">
             Forgot Password?
-          </a>
+          </a> */}
         </div>
         <br />
         <br />
-        <div class="submitdiv">
-          <input type="submit" value="Login" class="submitbtn" />
+        <div className="submitdiv">
+          <input
+            onClick={handleClick}
+            className="submitbtn"
+            placeholder="Login"
+          />
         </div>
         <br />
         <br />
-        <div class="footer">
+        <div className="footer">
           <p>
             Not a member?{" "}
-            <a href="#" class="signupbtn">
+            <a href="#" className="signupbtn">
               Signup now
             </a>
           </p>

@@ -16,40 +16,43 @@ export const Login = () => {
   };
   return (
     <div>
-      <form action="" class="form">
-        <div class="top">
-          <h1>Login Form</h1>
+      <form action="" className="form">
+        <div className="top">
+          <img
+            className="logo"
+            src="https://media.discordapp.net/attachments/617586904866619402/977376727657508904/Add_a_heading_2.png"
+          />
           <br />
-          <a href="#" class="active">
+          <a href="#" className="active">
             Login
           </a>
-          <a href="#" class="unactive">
+          <a href="#" className="unactive">
             Signup
           </a>
         </div>
         <br />
         <br />
         <br />
-        <div class="data">
-          <input type="text" class="inputs" placeholder="Email Address" />
-          <input type="text" class="inputs" placeholder="Password" />
+        <div className="data">
+          <input type="text" className="inputs" placeholder="Email Address" />
+          <input type="text" className="inputs" placeholder="Password" />
           <br />
 
-          <a href="#" class="forgotpsw">
+          <a href="#" className="forgotpsw">
             Forgot Password?
           </a>
         </div>
         <br />
         <br />
-        <div class="submitdiv">
-          <input type="submit" value="Login" class="submitbtn" />
+        <div className="submitdiv">
+          <input type="submit" value="Login" className="submitbtn" />
         </div>
         <br />
         <br />
-        <div class="footer">
+        <div className="footer">
           <p>
             Not a member?{" "}
-            <a href="#" class="signupbtn">
+            <a href="#" className="signupbtn">
               Signup now
             </a>
           </p>

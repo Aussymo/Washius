@@ -18,20 +18,21 @@ export const Login = () => {
     <div>
       <form action="" className="form">
         <div className="top">
-          <h1>Login Form</h1>
           <img
             className="logo"
             src="https://media.discordapp.net/attachments/617586904866619402/977376727657508904/Add_a_heading_2.png"
           />
           <br />
-          <a href="#" className="active">
+          <a
+            href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/"
+            className="active"
+          >
             Login
           </a>
           <a
             href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/signup"
             className="unactive"
-          ></a>
-          <a href="#" className="unactive">
+          >
             Signup
           </a>
         </div>
@@ -45,6 +46,7 @@ export const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          <br />
           <input
             type="password"
             placeholder="Password"
@@ -70,18 +72,9 @@ export const Login = () => {
             className="submitbtn"
             placeholder="Login"
           />
-          <input type="submit" value="Login" className="submitbtn" />
         </div>
         <br />
         <br />
-        <div className="footer">
-          <p>
-            Not a member?{" "}
-            <a href="#" className="signupbtn">
-              Signup now
-            </a>
-          </p>
-        </div>
       </form>
     </div>
   );

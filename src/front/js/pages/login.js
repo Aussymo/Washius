@@ -23,7 +23,10 @@ export const Login = () => {
           <a href="#" className="active">
             Login
           </a>
-          <a href="#" className="unactive">
+          <a
+            href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/signup"
+            className="unactive"
+          >
             Signup
           </a>
         </div>

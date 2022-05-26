@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ user: activeUser });
           sessionStorage.setItem("activeUser", activeUser);
         } catch (error) {
-          throw Error("error has been found get user");
+          throw Error("error on getuser");
         }
       },
 
@@ -62,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             return true;
           }
         } catch (error) {
-          throw Error("there has been an error");
+          throw Error("error on login");
         }
       },
 
@@ -82,10 +82,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             getActions().getActiveUser(email);
             return true;
           } else {
-            throw "another error occurred";
+            throw "createuser error";
           }
         } catch (error) {
-          throw Error("Encountered Error");
+          throw Error("Encountered Error on createuser");
         }
       },
 

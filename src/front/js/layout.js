@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Login } from "./pages/login";
+import { Signup } from "./pages/signup";
 import injectContext from "./store/appContext";
 
 //create your first component
@@ -20,6 +21,9 @@ const Layout = () => {
           <Switch>
             <Route exact path="/">
               <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
             </Route>
             <Route exact path="/demo">
               <Demo />

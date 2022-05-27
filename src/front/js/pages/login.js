@@ -24,13 +24,13 @@ export const Login = () => {
           />
           <br />
           <a
-            href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/"
+            href="https://3000-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io"
             className="active"
           >
             Login
           </a>
           <a
-            href="https://3000-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/signup"
+            href="https://3000-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/signup"
             className="unactive"
           >
             Signup

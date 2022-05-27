@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       login: async (email, password) => {
         try {
           const opts = await fetch(
-            "https://3001-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/api/token",
+            "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/token",
             {
               method: "POST",
               headers: {
@@ -69,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       createUser: async (email, password) => {
         try {
           const opts = await fetch(
-            "https://3001-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/api/signup",
+            "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/signup",
             {
               method: "POST",
               header: { "Content-Type": "application/json" },

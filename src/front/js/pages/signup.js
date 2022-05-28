@@ -13,24 +13,22 @@ export const Signup = () => {
   const history = useHistory("");
 
   const handleClick = (e) => {
-    actions.signup(email, password, username);
     e.preventDefault();
+    actions.createUser(email, password).then((data) => history.push("/"));
   };
   return (
     <div>
       <form className="form">
         <div className="top">
+          <img
+            className="logo"
+            src="https://media.discordapp.net/attachments/617586904866619402/977376727657508904/Add_a_heading_2.png"
+          />
           <br />
-          <a
-            href="https://3000-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/"
-            className="active"
-          >
+          <a href="/" className="Login">
             Login
           </a>
-          <a
-            href="https://3000-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/signup"
-            className="Signup"
-          >
+          <a href="/signup" className="Signup">
             Signup
           </a>
         </div>
@@ -68,7 +66,7 @@ export const Signup = () => {
         <br />
         <div className="submitdiv">
           <input
-            href="/"
+            href="/demo"
             onClick={handleClick}
             className="submitbtn"
             placeholder="Sign up"

@@ -5,7 +5,7 @@
   --blue: #268291;
 }
 body {
-  background: var(--bg-blue);
+  background: rgb(53, 53, 53);
   font-family: Monaco;
 }
 .logo {
@@ -93,4 +93,8 @@ input {
   border-radius: 10px;
   float: right;
   user-select: none;
+}
+.tesla {
+  width: 500px;
+  height: 300px;
 }

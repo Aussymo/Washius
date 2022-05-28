@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getUser: async (email) => {
         try {
           const resp = await fetch(
-            "https://3001-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/api/user/active",
+            process.env.BACKEND_URL + "/api/user/active",
             {
               method: "POST",
               headers: {
@@ -41,16 +41,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       login: async (email, password) => {
         try {
-          const opts = await fetch(
-            "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/token",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ email, password }),
-            }
-          );
+          const opts = await fetch(process.env.BACKEND_URL + "/api/token", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
 
           // const resp = await fetch('https://3001-4geeksacade-reactflaskh-setqz2nrkzy.ws-us45.gitpod.io/api/token')
           if (opts.ok) {
@@ -68,14 +65,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       createUser: async (email, password) => {
         try {
-          const opts = await fetch(
-            "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/signup",
-            {
-              method: "POST",
-              header: { "Content-Type": "application/json" },
-              body: JSON.stringify({ email, password }),
-            }
-          );
+          const opts = await fetch(process.env.BACKEND_URL + "/api/user", {
+            method: "POST",
+            header: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({ email, password }),
+          });
           if (opts.ok) {
             const token = await opts.json();
             sessionStorage.setItem("token", json.stringify(token));

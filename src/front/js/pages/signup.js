@@ -9,12 +9,19 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [error, setError] = useState(null);
   const [phone_number, setPhoneNumber] = useState("");
-  const history = useHistory("");
+  const history = useHistory();
 
   const handleClick = (e) => {
-    actions.signup(email, password, username);
     e.preventDefault();
+    actions
+      .createUser(email, password, username, phone_number)
+      .then((data) => history.push("/login"))
+      .catch((error) => {
+        setError(error);
+        console.log("signup error", error);
+      });
   };
   return (
     <div>
@@ -40,24 +47,28 @@ export const Signup = () => {
         <div className="data">
           <input
             type="email"
+            id="email"
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
             type="username"
+            id="username"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
             type="phone_number"
+            id="phone_number"
             placeholder="Phone Number"
             value={phone_number}
             onChange={(e) => setPhoneNumber(e.target.value)}
@@ -68,7 +79,7 @@ export const Signup = () => {
         <br />
         <div className="submitdiv">
           <input
-            href="/"
+            href="/login"
             onClick={handleClick}
             className="submitbtn"
             placeholder="Sign up"

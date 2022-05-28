@@ -19,10 +19,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       // 	setStore({ token: null })
       // },
 
-      getUser: async (email) => {
+      getActiveUser: async (email) => {
         try {
-          const resp = await fetch(
-            "https://3001-aussymo-washius-swy8j9tver7.ws-us46.gitpod.io/api/user/active",
+          const res = await fetch(
+            "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/user/active",
             {
               method: "POST",
               headers: {
@@ -31,20 +31,21 @@ const getState = ({ getStore, getActions, setStore }) => {
               body: JSON.stringify({ email }),
             }
           );
-          const activeUser = await resp.json();
-          setStore({ user: activeUser });
-          sessionStorage.setItem("activeUser", activeUser);
+          const activeUser = await res.json();
+          setStore({ activeuser: activeUser.username });
+          sessionStorage.setItem("activeUser", activeUser.username);
         } catch (error) {
           throw Error("error on getuser");
         }
       },
 
-      login: async (email, password) => {
+      login: async (email, password, history) => {
         try {
-          const opts = await fetch(
-            "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/token",
+          const res = await fetch(
+            "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/login",
             {
               method: "POST",
+              // mode: "no-cors",
               headers: {
                 "Content-Type": "application/json",
               },
@@ -53,31 +54,41 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
 
           // const resp = await fetch('https://3001-4geeksacade-reactflaskh-setqz2nrkzy.ws-us45.gitpod.io/api/token')
-          if (opts.ok) {
-            const data = await opts.json();
-            console.log("this came from backend", opts);
-            sessionStorage.setItem("token", JSON.stringify(data));
+          if (res.ok) {
+            const token = await res.json();
+            console.log("this came from backend", res);
+            sessionStorage.setItem("token", JSON.stringify(token));
             getActions().getUser(email);
+            history.push("/");
             // setStore({ token: data.access_token })
             return true;
+          } else {
+            throw "something doesnt look right";
           }
         } catch (error) {
           throw Error("error on login");
+          console.log(error);
         }
       },
 
-      createUser: async (email, password) => {
+      createUser: async (email, password, username, phone_number) => {
         try {
-          const opts = await fetch(
+          const res = await fetch(
             "https://3001-aussymo-washius-vksqs3t3ju6.ws-us46.gitpod.io/api/signup",
             {
               method: "POST",
-              header: { "Content-Type": "application/json" },
-              body: JSON.stringify({ email, password }),
+              // mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email,
+                password,
+                username,
+                phone_number,
+              }),
             }
           );
-          if (opts.ok) {
-            const token = await opts.json();
+          if (res.ok) {
+            const token = await res.json();
             sessionStorage.setItem("token", json.stringify(token));
             getActions().getActiveUser(email);
             return true;
